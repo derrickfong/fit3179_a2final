@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/triple.csv"
+  },
+  "title": "Monthly Average Humidity",
+  "params": [
+    {
+      "name": "State_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania",
+          "Northern Territory"
+        ],
+        "name": "Select State: "
+      },
+      "value": "New South Wales"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.State === State_selection"
+    }
+  ],
+  "config": {
+    "view": {
+      "strokeWidth": 0,
+      "step": 13
+    },
+    "axis": {
+      "domain": false
+    }
+  },
+  "mark": {
+    "type": "rect",
+    "tooltip": true 
+  },
+  "encoding": {
+    "x": {
+      "field": "Month",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      "axis": {
+        "labelAngle": 45
+      }
+    },
+    "y": {
+      "field": "Location",
+      "type": "nominal",
+      "title": "Location"
+    },
+    "color": {
+      "field": "average_monthly_hum",
+      "type": "quantitative",
+      "title": "Humidity (%)",
+      "legend": {
+        "title": "Humidity (%)",
+        "orient": "right"
+      }
+    }
+  },
+  "tooltip": [
+    {"field": "Location", "title": "Location"},
+    {"field": "Month", "title": "Month"},
+    {"field": "average_monthly_hum", "title": "Average Humidity", "format": ".0f"},
+    {"field": "State", "title": "State"}
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 500,
+  "title": "Average Rainfall In Australian Towns and Cities since 2008",
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "bind": {
+        "input": "range",
+        "min": 2008,
+        "max": 2016,
+        "step": 1,
+        "name": "Year: "
+      },
+      "value": 2016
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "js/output-2.json",
+        "format": {
+          "type": "topojson",
+          "feature": "STE_2016_AUST"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "darkseagreen",
+        "stroke": "black"
+      }
+    },
+    {
+      "data": {
+        "url": "js/output-2.json",
+        "format": {
+          "type": "topojson",
+          "feature": "ne_110m_graticules_30"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "gray",
+        "fill": "none",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "url": "data/map.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.Year == Year_selection"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.9,
+        "stroke": "black",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "average_Rainfall",
+          "type": "quantitative",
+          "title": "Rainfall Intensity (mm)",
+          "scale": {
+            "domain": [0, 6],
+            "range": [0, 1000]
+          },
+          "legend": {
+            "orient": "left"
+          }
+        },
+        "color": {
+          "field": "average_Rainfall",
+          "type": "quantitative",
+          "title": "Rainfall Intensity (mm)",
+          "scale": {
+            "domain": [0, 6],
+            "range": ["#b3d7ff", "#003399"]
+          },
+          "legend": {
+            "orient": "left"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Location",
+            "type": "nominal",
+            "title": "Location"
+          },
+          {
+            "field": "average_Rainfall",
+            "type": "quantitative",
+            "title": "Average Rainfall (mm)",
+            "format": ".2f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": "transparent"
+    }
+  }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+    <title>Australia Weather Analysis</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Exploring Australia’s Weather: Insights and Patterns</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Diving into Precipitation Patterns Across the States</h2>
+            <div class="rain-container">
+                <div class="viz-wrapper">
+                    <div id="rain1" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        In Australia, trends in monthly average rainfall vary significantly across states due to the country's diverse climate zones. Coastal states like New South Wales and Queensland generally experience higher rainfall, especially during summer months, influenced by tropical systems and east coast low-pressure systems. 
+                        <br><br>
+                        In contrast, states like South Australia and Western Australia, particularly in their interior regions, see much lower monthly rainfall averages, with more significant seasonal variation, often peaking during winter months. Tasmania, with its temperate climate, enjoys consistent rainfall throughout the year, while the Northern Territory experiences distinct wet and dry seasons due to its tropical climate. 
+                        <br><br>
+        
+                    </p>
+                </div>
+                <div class="viz-wrapper">
+                    <div id="rain2" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        The percentage of days with rain across Australian states reflects the country’s diverse climate. In tropical regions like Queensland and the Northern Territory, the wet season (summer) results in a high percentage of rainy days, especially from December to February. 
+                        <br><br>
+                        Meanwhile, states such as Western Australia and South Australia, with their more arid and semi-arid zones, have fewer rainy days, with the percentage peaking during winter months. Tasmania and coastal areas of New South Wales experience more consistent rainfall throughout the year, leading to a higher percentage of rainy days, particularly in Tasmania, where the cool, temperate climate sustains frequent showers year-round.
+                    </p>
+                </div>
+            </div>
+            <div class="rain3-container">
+                <div class="viz-wrapper rain3">
+                    <div id="rain3" class="viz-container rain3"></div>
+                    <p class="rain3_text">
+                        Cairns, Darwin, and Sydney tend to experience more rain compared to cities like Melbourne, Adelaide, and Alice Springs, due to their distinct climates and geographical locations. Cairns and Darwin, located in tropical northern Australia, see heavy rainfall during the wet season, especially from November to April, when monsoonal rains bring frequent downpours and storms. 
+                        <br><br>
+                        Sydney, with its coastal location, enjoys relatively consistent rainfall throughout the year, influenced by moist sea breezes and occasional east coast lows.
+                        <br><br>
+                        In contrast, Melbourne and Adelaide, located in the temperate southern regions, experience more seasonal rainfall, with winter being the wettest period. However, these cities receive significantly less rain overall compared to the tropical north. Alice Springs, in central Australia, has a desert climate, making it one of the driest places in the country, with very few rainy days throughout the year. 
+                        <br><br>
+                        The contrast between these regions highlights Australia’s diverse rainfall patterns, driven by both tropical and temperate influences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Temperature Trends: From the Tropics to the Temperate Zones</h2>
+            <div class="rain-container">
+                <div class="viz-wrapper">
+                    <div id="temp1" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        <br><br>
+                        Average monthly temperatures in Australia vary widely by state. In the tropical north, cities like Cairns and Darwin experience consistently high temperatures, often exceeding 30°C in summer. 
+                        <br><br>
+                        Southern states, such as Victoria and Tasmania, are cooler, with cities like Melbourne and Hobart averaging 20-25°C in summer and much lower in winter. Sydney and Perth enjoy moderate to warm temperatures, while Adelaide sees hot, dry summers and milder winters. 
+                        <br><br>
+                        This range highlights the country’s diverse climate zones from north to south.
+                    </p>
+                </div>
+                <div class="viz-wrapper">
+                    <div id="temp2" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        Average maximum and minimum temperatures in Australia show clear contrasts between regions. In northern cities like Darwin and Cairns, the average maximum often exceeds 30°C, with warm nights keeping the minimum above 20°C. 
+                        <br><br>
+                        In southern areas, like Melbourne and Hobart, maximum temperatures are more moderate, around 20-25°C, while winter nights can drop below 10°C. Sydney and Perth see warm maximums around 25-30°C in summer but cooler minimums around 15°C. 
+                        <br><br>
+                        Inland cities like Alice Springs experience more extremes, with very hot days and cold nights, especially in winter.
+                    </p>
+                </div>
+            </div>
+            <div class="rain3-container">
+                <div class="viz-wrapper rain3">
+                    <div id="temp3" class="viz-container rain3"></div>
+                    <p class="rain3_text">
+                        Humidity levels in Australia vary widely by state. 
+                        <br><br>
+                        Queensland (e.g., Cairns) and the Northern Territory (Darwin) have high humidity, often exceeding 80%, especially in tropical areas. 
+                        <br><br>
+                        New South Wales (Sydney) sees moderate humidity around 60-70%, while Victoria (Melbourne) and South Australia (Adelaide) experience lower levels, around 50-60%.
+                        <br><br>
+                         Western Australia ranges from humid in the north to dry in the south.
+                         <br><br>
+                        Inland areas like Alice Springs in the Northern Territory have very low humidity, often below 30%.
+                        <br><br>
+                         Tasmania maintains moderate levels around 60-70%. Coastal regions, such as the Gold Coast in Queensland, also experience high humidity, while southern coastal areas like Port Lincoln in South Australia have more temperate conditions. 
+                         <br><br>
+                         These variations in humidity are influenced by geographical features, significantly affecting local climates across the country.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Wind Patterns: Unraveling Australia’s Breezy Secrets</h2>
+            <div class="rain-container">
+                <div class="viz-wrapper">
+                    <div id="wind1" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        Winds in Australia differ across states due to varied geography. New South Wales and Queensland experience coastal sea breezes and stronger inland gusts, while Victoria has variable winds influenced by its mountains. 
+                        <br><br>
+                        Western Australia and South Australia often face hot, dry winds, with the former seeing stronger gusts in the north. Tasmania experiences robust winds, especially in winter, due to its coastal location. 
+                        <br><br>
+                        In the Northern Territory, seasonal trade winds and monsoonal conditions create distinct wind patterns throughout the year.
+                    </p>
+                </div>
+                <div class="viz-wrapper">
+                    <div id="wind2" class="viz-container"></div>
+                    <p class="text-placeholder">
+                        In Australia, wind speed outliers typically occur in specific regions and times. Coastal areas like Sydney and Cairns can experience extreme gusts during storms and cyclones, leading to significant wind events. 
+                        <br><br>
+                        Darwin is known for strong winds during the wet season, driven by monsoonal changes. In contrast, the southern states such as Tasmania and Victoria can see outlier winds due to cold fronts and mountain effects, resulting in fierce gusts. 
+                        <br><br>
+                        Alice Springs and the interior regions may occasionally experience sudden wind shifts related to heat waves or dust storms, highlighting the variability in wind patterns across Australia.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rain, Temperature, and Humidity: A Triad of Climatic Relationships</h2>
+            <div class="scatter-container">
+                <div class="viz-wrapper scatter">
+                    <div id="scat1" class="viz-container scatter"></div>
+                    <p class="scatter_text">
+                        An interesting observation in Australian weather patterns is that states with higher average temperatures tend to experience higher rainfall, which is evident due to clusters in the data.
+                        <br><br>
+                        For instance, regions like Queensland show a correlation where increased temperature aligns with significant rainfall, especially during the summer months.
+                        <br><br>
+                        However, this pattern is not universally applicable, as Western Australia displays instances of high temperatures but relatively low rainfall, emphasizing the complexities of Australia's diverse climate. 
+                        <br><br>
+                        Additionally, New South Wales often experiences seasonal rainfall that aligns with temperature peaks, particularly during the late spring and summer.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Australia Weather Analysis Dashboard. All rights reserved.</p>
+    </footer>
+
+
+</body>
+
+</html>
+
+
+    <script type="text/javascript">
+        // Function to update all visualizations
+        function updateVisualizations() {
+    vegaEmbed("#rain1", "js/rain1.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#rain2", "js/rain2.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#rain3", "js/rain3.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#temp1", "js/temp1.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#temp2", "js/temp2.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#temp3", "js/temp3.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#wind1", "js/wind1.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#wind2", "js/windbox.vg.json", { actions: false }).catch(console.error);
+    vegaEmbed("#scat1", "js/scatter.vg.json", { actions: false }).catch(console.error);
+}
+
+
+        // Initial visualization load
+        window.onload = updateVisualizations;
+    </script>
+
+</body>
+
+</html>

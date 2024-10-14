@@ -1,0 +1,102 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 350,
+    "title": "Weather Data in Australian Towns and Cities",
+    "projection": {
+        "type": "mercator"
+    },
+    "params": [
+        {
+            "name": "Year_selection",
+            "bind": {
+                "input": "range",
+                "min": 2008,
+                "max": 2016,
+                "step": 1,
+                "name": "Select Year: "
+            },
+            "value": 2016
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "js/output.json",
+                "format": {
+                    "type": "topojson",
+                    "feature": "STE_2016_AUST"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "grey",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "data/map.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.Year == Year_selection"
+                }
+            ],
+            "mark": {
+                "type": "point",
+                "opacity": 0.9
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "Long",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "Lat",
+                    "type": "quantitative"
+                },
+                "size": {
+                    "field": "average_Rainfall",  
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [0, 500],
+                        "range": [0, 1000]
+                    }
+                },
+                "color": {
+                    "field": "average_Rainfall",
+                    "type": "quantitative",
+                    "scale": {
+                        "domain": [0, 500],
+                        "scheme": "blues"
+                    }
+                },
+                "tooltip": [
+                    {
+                        "field": "Location",
+                        "type": "nominal",
+                        "title": "Location"
+                    },
+                    {
+                        "field": "State",
+                        "type": "nominal",
+                        "title": "State"
+                    },
+                    {
+                        "field": "average_Rainfall",
+                        "type": "quantitative",
+                        "title": "Rainfall (mm)",
+                        "format": ".2f"
+                    }
+                ]
+            },
+            "config": {
+                "legend": {
+                    "title": "Rainfall (mm)",
+                    "orient": "right"
+                }
+            }
+        }
+    ]
+}

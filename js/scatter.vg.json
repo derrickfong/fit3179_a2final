@@ -1,0 +1,87 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 300,
+    "title": {
+        "text": "Rainfall, Humidity and Temperature",
+        "subtitle": "Hint: Select state on legend to highlight locations"
+    },
+    "description": "Scatter plot of average temperature vs average rainfall, with average humidity as size and colored by state.",
+    "data": {
+        "url": "data/scatter.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "mark": "circle",
+    "selection": {
+        "State_highlight": {
+            "type": "point",
+            "fields": ["State"],
+            "bind": "legend"
+        }
+    },
+    "encoding": {
+        "x": {
+            "field": "average_temp",
+            "type": "quantitative",
+            "title": "Average Temperature (°C)",
+            "scale": {
+                "domain": [5, 30]  
+            },
+            "axis": {
+                "tickCount": 6,
+                "grid": true 
+            }
+        },
+        "y": {
+            "field": "average_Rainfall",
+            "type": "quantitative",
+            "title": "Average Rainfall (mm)"
+        },
+        "size": {
+            "field": "average_hum",
+            "type": "quantitative",
+            "title": "Average Humidity (%)",
+            "scale": {
+                "type": "threshold",
+                "domain": [40, 50, 60, 70, 80],
+                "range": [50, 150, 250, 400, 450, 600]
+            }
+        },
+        "color": {
+            "field": "State",
+            "type": "nominal",
+            "title": "State",
+            "scale": {
+                "domain": [
+                    "New South Wales",
+                    "Victoria",
+                    "Queensland",
+                    "South Australia",
+                    "Western Australia",
+                    "Tasmania",
+                    "Northern Territory"
+                ],
+                "range": ["#1f77b4", "#ff7f0e", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#bcbd22"]  
+            },
+            "legend": {
+                "title": "State"
+            }
+        },
+        "opacity": {
+            "condition": {
+                "param": "State_highlight",
+                "value": 0.7
+            },
+            "value": 0
+        },
+        "tooltip": [
+            {"field": "Location", "type": "nominal", "title": "Location"},
+            {"field": "average_temp", "type": "quantitative", "title": "Average Temperature (°C)", "format": ".2f"},
+            {"field": "average_hum", "type": "quantitative", "title": "Average Humidity (%)", "format": ".2f"},
+            {"field": "average_Rainfall", "type": "quantitative", "title": "Average Rainfall (mm)", "format": ".2f"},
+            {"field": "State", "type": "nominal", "title": "State"}
+        ]
+    }
+}

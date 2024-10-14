@@ -1,0 +1,34 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Vector array map showing wind gust speed.",
+    "width": 615,
+    "height": 560,
+    "data": {
+      "url": "vector.csv",
+      "format": {"type": "csv", "parse": {"Long": "number", "Lat": "number"}}
+    },
+    "projection": {"type": "equalEarth"},
+    "mark": {"type": "point", "shape": "circle", "filled": true},
+    "encoding": {
+      "longitude": {"field": "Long", "type": "quantitative"},
+      "latitude": {"field": "Lat", "type": "quantitative"},
+      "size": {
+        "field": "average_WindGustSpeed",
+        "type": "quantitative",
+        "scale": {"rangeMax": 500},
+        "title": "Average Wind Gust Speed"
+      },
+      "tooltip": [
+        {"field": "Location", "title": "Location"},
+        {"field": "Year", "title": "Year"},
+        {"field": "Month", "title": "Month"},
+        {"field": "average_WindGustSpeed", "title": "Wind Gust Speed"},
+        {"field": "State", "title": "State"}
+      ]
+    },
+    "config": {
+      "aria": false,
+      "view": {"step": 10, "fill": "black"}
+    }
+  }
+  

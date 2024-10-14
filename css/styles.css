@@ -1,0 +1,200 @@
+/* Shared styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #eaf0f6; /* Light background for contrast */
+    color: #000; /* Set body text color to black */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    color: white;
+    padding: 50px 10px 10px 20px; /* Increase top padding by 10px */
+    text-align: center;
+}
+
+
+
+h1, h2 {
+    margin: 0;
+    color: #000; /* Set heading text color to black */
+    text-align: center; /* Center align headings */
+}
+
+h1 {
+    font-size: 50px; /* Increase font size for the main heading */
+}
+
+h2 {
+    font-size: 24px;
+    color: #ffffff; /* Increase font size for subheadings */
+    margin: 20px 0; /* Add vertical spacing around subtitles */
+    text-align: center; /* Center align headings */
+    padding: 15px; /* Add padding inside the box */
+    border: 2px solid #004a99; /* Darker blue border matching container outer color */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    background-color: #1f77b4; /* Light blue background for contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+
+
+main {
+    padding: 20px;
+}
+
+.viz-wrapper {
+    flex: 1;
+    min-width: 300px; /* Ensures a minimum width */
+    background-color: #ffffff; /* White background for visualizations */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    padding: 10px;
+    margin-bottom: 20px; /* Add bottom margin for spacing between containers */
+}
+
+.viz-container {
+    width: 100%;
+    height: 300px; /* Consistent height for visualizations */
+}
+
+/* Rain3 styles */
+.rain3-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the visualization and text */
+    align-items: center; /* Aligns items vertically */
+    margin-bottom: 10px;
+}
+
+.viz-wrapper.rain3 {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Space between visualization and text */
+    width: 100%; /* Full width */
+}
+
+.viz-container.rain3 {
+    width: 70%; /* Adjust space for the visualization */
+    height: 550px; /* Adjusted height for rain3 */
+}
+
+.rain3_text {
+    width: 30%; /* Adjust width for the text container */
+    font-size: 16px; /* Increase text size */
+    color: #000; /* Set text color to black */
+    margin: 0; /* Remove top margin to align with the visualization */
+    padding: 10px; /* Add padding for text inside the container */
+    text-align: justify; /* Justify alignment for better text balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+    height: 300px; /* Match the height of the visualization */
+}
+
+/* Temp3 styles */
+.temp3-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the visualization and text */
+    align-items: center; /* Aligns items vertically */
+    margin-bottom: 10px;
+}
+
+.viz-wrapper.temp3 {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Space between visualization and text */
+    width: 100%; /* Full width */
+}
+
+.viz-container.temp3 {
+    width: 70%; /* Adjust space for the visualization */
+    height: 550px; /* Adjusted height for temp3 */
+}
+
+.temp3_text {
+    width: 30%; /* Adjust width for the text container */
+    font-size: 16px; /* Increase text size */
+    color: #000; /* Set text color to black */
+    margin: 0; /* Remove top margin to align with the visualization */
+    padding: 10px; /* Add padding for text inside the container */
+    text-align: justify; /* Justify alignment for better text balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+    height: 300px; /* Match the height of the visualization */
+}
+
+/* Scatter styles */
+.scatter-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Adds space between the visualization and text */
+    align-items: center; /* Aligns items vertically */
+    margin-bottom: 10px;
+}
+
+.viz-wrapper.scatter {
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    align-items: center; /* Center items vertically */
+    gap: 20px; /* Space between visualization and text */
+    width: 100%; /* Full width */
+}
+
+.viz-container.scatter {
+    width: 100%; /* Adjust space for the visualization */
+    height: 400px; /* Adjusted height for scatter */
+}
+
+.scatter_text {
+    width: 30%; /* Adjust width for the text container */
+    font-size: 16px; /* Increase text size */
+    color: #000; /* Set text color to black */
+    margin: 0; /* Remove top margin to align with the visualization */
+    padding: 10px; /* Add padding for text inside the container */
+    text-align: justify; /* Justify alignment for better text balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center text vertically */
+    height: 300px; /* Match the height of the visualization */
+}
+
+/* Other visualizations - Text below */
+.rain-container,
+.wind-container,
+.temp-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Adjusted for uniform horizontal and vertical spacing */
+}
+
+.viz-wrapper:not(.rain3):not(.temp3):not(.scatter) {
+    flex-direction: column; /* Stack the visualization and text */
+    align-items: flex-start; /* Align text below the visualization */
+    height: 800px; /* Set a specific height for the wrapper */
+}
+
+
+.viz-container:not(.rain3):not(.temp3):not(.scatter) {
+    width: 100%; /* Full width visualization */
+    height: 300px;
+}
+
+.text-placeholder:not(.rain3_text):not(.temp3_text):not(.scatter_text) {
+    width: 100%; /* Full width for the text */
+    margin-top: 10px;
+    height: 300px; /* Match the height of the visualizations */
+    text-align: justify; /* Justify alignment for better text balance */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out the text evenly */
+    font-size: 16px; /* Increase text size */
+    color: #000; /* Set text color to black */
+    padding: 10px; /* Add padding for text inside the container */
+    box-sizing: border-box; /* Include padding in width calculation */
+}

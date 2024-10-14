@@ -1,0 +1,90 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "565",
+  "height": 400,
+  "description": "Stacked bar chart with filters for location and year using data from rain_prop.csv.",
+  "title": {
+    "text": "Percentage of Rainy Days Each Month By Location",
+    "subtitle": "Hint: Hover over plot to view more details"
+},
+  "data": {
+    "url": "data/rain_prop.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2016,
+        "step": 1,
+        "name": "Year: "
+      },
+      "value": 2016
+    },
+    {
+      "name": "Location_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adelaide", "Albany", "AliceSprings", "Ballarat", "Bendigo", "Brisbane",
+          "Cairns", "Canberra", "Darwin", "GoldCoast", "Hobart",
+          "Launceston", "Melbourne", "Newcastle", "Nuriootpa", "Perth", "SalmonGums",
+          "Sydney", "Townsville", "Uluru", "Walpole", "Williamtown", "Witchcliffe",
+          "Wollongong", "Woomera"
+        ],
+        "name": "Location: "
+      },
+      "value": "Melbourne"
+    }
+    
+  ],
+  "transform": [
+    {
+      "filter": "datum.Location == Location_selection"
+    },
+    {
+      "filter": "datum.Year == Year_selection"
+    }
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Month",
+          "type": "ordinal",
+          "title": "Month",
+          "scale": {
+            "domain": [
+              "January", "February", "March", "April", "May",
+              "June", "July", "August", "September", "October",
+              "November", "December"
+            ]
+          },
+          "axis": {
+            "labelAngle": 45
+          }
+        },
+        "y": {
+          "field": "Rain_Percentage",
+          "type": "quantitative",
+          "scale": {"domain": [0, 80]},
+          "title": "Frequency (%)",
+          "axis": {
+            "grid": false,
+            "domain": false
+          }
+        },
+        "color": {"value": "#1f77b4"},
+        "tooltip": [
+          {"field": "Year", "title": "Year"},
+          {"field": "Month", "title": "Month"},
+          {"field": "Location", "title": "Location"},
+          {"field": "Rain_Percentage", "title": "Frequency (%)", "format": ".2f"}
+        ]
+      }
+    }
+  ]
+}

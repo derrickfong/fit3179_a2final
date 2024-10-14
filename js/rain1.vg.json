@@ -1,0 +1,161 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 565,
+    "height": 400,
+    "title": {
+        "text": "Average Monthly Rainfall by Location",
+        "subtitle": "Hint: Select location on legend to highlight"
+    },
+    "data": {
+        "url": "data/rain.csv"
+    },
+    "params": [
+        {
+            "name": "Year_selection",
+            "bind": {
+                "input": "range",
+                "min": 2010,
+                "max": 2016,
+                "step": 1,
+                "name": "Year: "
+            },
+            "value": 2016
+        },
+        {
+            "name": "State_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "New South Wales",
+                    "Victoria",
+                    "Queensland",
+                    "South Australia",
+                    "Western Australia",
+                    "Tasmania",
+                    "Northern Territory"
+                ],
+                "name": "State: "
+            },
+            "value": "Victoria"
+        }
+    ],
+    "transform": [
+        {
+            "filter": "datum.Year == Year_selection && datum.State == State_selection"
+        }
+    ],
+    "layer": [
+        {
+            "mark": "line",
+            "selection": {
+                "Location_highlight": {
+                    "type": "point",
+                    "fields": ["Location"],
+                    "bind": "legend"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "Month",
+                    "type": "ordinal",
+                    "title": "Month",
+                    "sort": [
+                        "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                    ],
+                    "axis": {
+                        "labelAngle": 45
+                    }
+                },
+                "y": {
+                    "field": "average_monthly_rainfall",
+                    "type": "quantitative",
+                    "title": "Rainfall (mm)"
+                },
+                "color": {
+                    "field": "Location",
+                    "type": "nominal",
+                    "scale": {
+                        "range": [
+                            "#1f77b4", "#ff7f0e", "#2ca02c", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"
+                        ]
+                    },
+                    "legend": {
+                        "orient": "top-right"  
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "Location_highlight",
+                        "value": 1
+                    },
+                    "value": 0
+                }
+            }
+        },
+        {
+            "mark": {
+                "type": "point",
+                "filled": true,
+                "size": 50
+            },
+            "encoding": {
+                "x": {
+                    "field": "Month",
+                    "type": "ordinal",
+                    "title": "Month",
+                    "sort": [
+                        "January", "February", "March", "April", "May", "June",
+                        "July", "August", "September", "October", "November", "December"
+                    ],
+                    "axis": {
+                        "labelAngle": 45
+                    }
+                },
+                "y": {
+                    "field": "average_monthly_rainfall",
+                    "type": "quantitative"
+                },
+                "color": {
+                    "field": "Location",
+                    "type": "nominal",
+                    "scale": {
+                        "range": [
+                            "#1f77b4", "#ff7f0e", "#2ca02c", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"
+                        ]
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "Location_highlight",
+                        "value": 1
+                    },
+                    "value": 0
+                },
+                "tooltip": [
+                    {
+                        "field": "Year",
+                        "type": "quantitative",
+                        "title": "Year"
+                    },
+                    {
+                        "field": "Month",
+                        "type": "ordinal",
+                        "title": "Month"
+                    },
+                    {
+                        "field": "Location",
+                        "type": "nominal",
+                        "title": "Location"
+                    },
+                    {
+                        "field": "average_monthly_rainfall",
+                        "type": "quantitative",
+                        "title": "Rainfall (mm)",
+                        "format": ".2f"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 565,
+    "height": 400,
+    "title": {
+        "text": "Wind Gust Speed by Season",
+        "subtitle": "Hint: Hover over outliers to view when it occured"
+      },
+    "data": {
+      "url": "data/weather_test.csv",
+      "format": {"type": "csv"}
+    },
+    "params": [
+      {
+        "name": "Year_selection",
+        "bind": {
+          "input": "range",
+          "min": 2010,
+          "max": 2016,
+          "step": 1,
+          "name": "Year: "
+        },
+        "value": 2016
+      },
+      {
+        "name": "Location_selection",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Adelaide", "Albany", "AliceSprings", "Ballarat", "Bendigo", "Brisbane",
+            "Cairns", "Canberra", "Darwin", "GoldCoast", "Hobart",
+            "Launceston", "Melbourne", "Newcastle", "Nuriootpa", "Perth", "SalmonGums",
+            "Sydney", "Townsville", "Uluru", "Walpole", "Williamtown", "Witchcliffe",
+            "Wollongong", "Woomera"
+          ],
+          "name": "Location: "
+        },
+        "value": "Melbourne"
+      }
+    ],
+    "transform": [
+      {
+        "filter": "datum.Year == Year_selection"
+      },
+      {
+        "filter": "datum.Location == Location_selection"
+      }
+    ],
+    "encoding": {
+      "x": {
+        "axis": {
+          "labelAngle": 45
+        },
+        "field": "Season",
+        "type": "ordinal",
+        "title": "Season",
+        "sort": ["Summer", "Autumn", "Winter", "Spring"]
+      },
+      "y": {
+        "field": "WindGustSpeed",
+        "type": "quantitative",
+        "title": "Wind Gust Speed (km/h)"
+      },
+      "tooltip": [
+        {"field": "Location", "title": "Location"},
+        {"field": "Season", "title": "Season"},
+        {
+          "field": "Date",
+          "title": "Date",
+          "type": "temporal",
+          "timeUnit": "yearmonthdate",
+          "format": "%d %B %Y"  
+        },
+        {"field": "WindGustSpeed", "title": "Wind Gust Speed (km/h)"}
+      ]
+    },
+    "mark": {
+      "type": "boxplot",
+      "size": 50, 
+      "strokeWidth": 3 
+    }
+  }
+  

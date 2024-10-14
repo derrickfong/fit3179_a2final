@@ -1,0 +1,313 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "565",
+  "height": 350,
+  "title": {
+    "text": "Temperature Fluctuations by Month",
+    "subtitle": "Hint: Select to view either Max/Min Temperatures or Temperature Fluctuations"
+  },
+  "data": {
+    "url": "data/temp_summary.csv"
+  },
+  "params": [
+    {
+      "name": "Year_selection",
+      "bind": {
+        "input": "range",
+        "min": 2010,
+        "max": 2016,
+        "step": 1,
+        "name": "Year: "
+      },
+      "value": 2016
+    },
+    {
+      "name": "Location_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adelaide", "Albany", "AliceSprings", "Ballarat", "Bendigo", "Brisbane",
+          "Cairns", "Canberra", "Darwin", "GoldCoast", "Hobart",
+          "Launceston", "Melbourne", "Newcastle", "Nuriootpa", "Perth", "SalmonGums",
+          "Sydney", "Townsville", "Walpole", "Williamtown", "Witchcliffe",
+          "Wollongong", "Woomera"
+        ],
+        "name": "Location: "
+      },
+      "value": "Melbourne"
+    },
+  
+    {
+      "name": "Metric_selection",
+      "bind": {
+        "input": "select",
+        "options": ["Max/Min Temperatures", "Temperature Fluctuations"],
+        "name": "Metric: "
+      },
+      "value": "Max/Min Temperatures"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.Location == Location_selection"
+    },
+    {
+      "filter": "datum.Year == Year_selection"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Month",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": ["January", "February", "March", "April", "May", "June",
+               "July", "August", "September", "October", "November", "December"],
+      "axis": {
+        "labelAngle": 45 
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.6
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MaxTemp",
+          "type": "quantitative",
+          "title": "Temperature (°C)",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MaxTemp"
+          }
+        },
+        "color": {
+          "value": "#FF7F0E"
+        },
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "legend": {
+          "title": "Temperature Metrics",
+          "orient": "right",
+          "values": ["Max Temperature", "Min Temperature"],
+          "labels": ["Max Temp", "Min Temp"]
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "area",
+        "opacity": 0.6
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MinTemp",
+          "type": "quantitative",
+          "title": "Temperature (°C)",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MinTemp"
+          }
+        },
+        "color": {
+          "value": "#1F77B4"
+        },
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MaxTemp",
+          "type": "quantitative",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MaxTemp"
+          }
+        },
+        "color": {
+          "value": "black"
+        },
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MinTemp",
+          "type": "quantitative",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MinTemp"
+          }
+        },
+        "color": {
+          "value": "black"
+        },
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "color": "#1f77b4", 
+        "size": 45 
+      },
+      "encoding": {
+        "x": {
+          "field": "Month",
+          "type": "ordinal",
+          "title": "Month",
+          "sort": ["January", "February", "March", "April", "May", "June",
+                   "July", "August", "September", "October", "November", "December"],
+          "band": 0.3 
+        },
+        "y": {
+          "field": "Avg_Temp_Fluctuation",
+          "type": "quantitative",
+          "condition": {
+            "test": "Metric_selection === 'Temperature Fluctuations'",
+            "field": "Avg_Temp_Fluctuation"
+          },
+          "scale": {
+            "domain": [0, 35]
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Temperature Fluctuations'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 30,
+        "color": "black"  
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MaxTemp",
+          "type": "quantitative",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MaxTemp"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "Month",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "Location",
+            "type": "ordinal",
+            "title": "Location"
+          },
+          {
+            "field": "Avg_MaxTemp",
+            "type": "quantitative",
+            "title": "Average Max Temp (°C)",
+            "format": ".2f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 20,
+        "color": "black"  
+      },
+      "encoding": {
+        "y": {
+          "field": "Avg_MinTemp",
+          "type": "quantitative",
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "field": "Avg_MinTemp"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "Month",
+            "type": "ordinal",
+            "title": "Month"
+          },
+          {
+            "field": "Location",
+            "type": "ordinal",
+            "title": "Location"
+          },
+          {
+            "field": "Avg_MinTemp",
+            "type": "quantitative",
+            "title": "Average Min Temp (°C)",
+            "format": ".2f"
+          }
+        ],
+        "opacity": {
+          "condition": {
+            "test": "Metric_selection === 'Max/Min Temperatures'",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ]
+}
