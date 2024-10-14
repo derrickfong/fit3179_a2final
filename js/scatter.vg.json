@@ -13,75 +13,144 @@
             "type": "csv"
         }
     },
-    "mark": "circle",
-    "selection": {
-        "State_highlight": {
-            "type": "point",
-            "fields": ["State"],
-            "bind": "legend"
+    "layer": [
+        {
+            "mark": "circle",
+            "selection": {
+                "State_highlight": {
+                    "type": "point",
+                    "fields": ["State"],
+                    "bind": "legend"
+                }
+            },
+            "encoding": {
+                "x": {
+                    "field": "average_temp",
+                    "type": "quantitative",
+                    "title": "Average Temperature (°C)",
+                    "scale": {
+                        "domain": [5, 30]
+                    },
+                    "axis": {
+                        "tickCount": 6,
+                        "grid": true
+                    }
+                },
+                "y": {
+                    "field": "average_Rainfall",
+                    "type": "quantitative",
+                    "title": "Average Rainfall (mm)"
+                },
+                "size": {
+                    "field": "average_hum",
+                    "type": "quantitative",
+                    "title": "Average Humidity (%)",
+                    "scale": {
+                        "type": "threshold",
+                        "domain": [40, 50, 60, 70, 80],
+                        "range": [50, 150, 250, 400, 450, 600]
+                    }
+                },
+                "color": {
+                    "field": "State",
+                    "type": "nominal",
+                    "title": "State",
+                    "scale": {
+                        "domain": [
+                            "New South Wales",
+                            "Victoria",
+                            "Queensland",
+                            "South Australia",
+                            "Western Australia",
+                            "Tasmania",
+                            "Northern Territory"
+                        ],
+                        "range": ["#1f77b4", "#ff7f0e", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#bcbd22"]
+                    },
+                    "legend": {
+                        "title": "State"
+                    }
+                },
+                "opacity": {
+                    "condition": {
+                        "param": "State_highlight",
+                        "value": 0.7
+                    },
+                    "value": 0
+                },
+                "tooltip": [
+                    {"field": "Location", "type": "nominal", "title": "Location"},
+                    {"field": "average_temp", "type": "quantitative", "title": "Average Temperature (°C)", "format": ".2f"},
+                    {"field": "average_hum", "type": "quantitative", "title": "Average Humidity (%)", "format": ".2f"},
+                    {"field": "average_Rainfall", "type": "quantitative", "title": "Average Rainfall (mm)", "format": ".2f"},
+                    {"field": "State", "type": "nominal", "title": "State"}
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 220,
+                "dy": -160
+            },
+            "encoding": {
+                "text": {"value": "Cairns: One of the wettest cities In Australia"},
+                "color": {"value": "black"},
+                "fontSize": {"value": 12}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 160,
+                "dy": 125
+            },
+            "encoding": {
+                "text": {"value": "Uluru: Arid climate with low rainfall. "},
+                "color": {"value": "black"},
+                "fontSize": {"value": 12}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": -300,
+                "dy": 90
+            },
+            "encoding": {
+                "text": {"value": "Victoria: Lower temperatures and rainfall. "},
+                "color": {"value": "black"},
+                "fontSize": {"value": 12}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": 300,
+                "dy": -65
+            },
+            "encoding": {
+                "text": {"value": "NT: Hottest State "},
+                "color": {"value": "black"},
+                "fontSize": {"value": 12}
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": -60,
+                "dy": -65
+            },
+            "encoding": {
+                "text": {"value": "NSW: High rainfall "},
+                "color": {"value": "black"},
+                "fontSize": {"value": 12}
+            }
         }
-    },
-    "encoding": {
-        "x": {
-            "field": "average_temp",
-            "type": "quantitative",
-            "title": "Average Temperature (°C)",
-            "scale": {
-                "domain": [5, 30]  
-            },
-            "axis": {
-                "tickCount": 6,
-                "grid": true 
-            }
-        },
-        "y": {
-            "field": "average_Rainfall",
-            "type": "quantitative",
-            "title": "Average Rainfall (mm)"
-        },
-        "size": {
-            "field": "average_hum",
-            "type": "quantitative",
-            "title": "Average Humidity (%)",
-            "scale": {
-                "type": "threshold",
-                "domain": [40, 50, 60, 70, 80],
-                "range": [50, 150, 250, 400, 450, 600]
-            }
-        },
-        "color": {
-            "field": "State",
-            "type": "nominal",
-            "title": "State",
-            "scale": {
-                "domain": [
-                    "New South Wales",
-                    "Victoria",
-                    "Queensland",
-                    "South Australia",
-                    "Western Australia",
-                    "Tasmania",
-                    "Northern Territory"
-                ],
-                "range": ["#1f77b4", "#ff7f0e", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#bcbd22"]  
-            },
-            "legend": {
-                "title": "State"
-            }
-        },
-        "opacity": {
-            "condition": {
-                "param": "State_highlight",
-                "value": 0.7
-            },
-            "value": 0
-        },
-        "tooltip": [
-            {"field": "Location", "type": "nominal", "title": "Location"},
-            {"field": "average_temp", "type": "quantitative", "title": "Average Temperature (°C)", "format": ".2f"},
-            {"field": "average_hum", "type": "quantitative", "title": "Average Humidity (%)", "format": ".2f"},
-            {"field": "average_Rainfall", "type": "quantitative", "title": "Average Rainfall (mm)", "format": ".2f"},
-            {"field": "State", "type": "nominal", "title": "State"}
-        ]
-    }
+    ]
 }

@@ -46,6 +46,62 @@
   ],
   "layer": [
     {
+      "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": -60,
+          "dy": 90
+      },
+      "encoding": {
+          "text": {"value": "Start of Winter"},
+          "color": {"value": "grey"},
+          "fontSize": {"value": 12},
+          "opacity": {"value": 0.1}
+      }
+  },
+  {
+    "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": -190,
+        "dy": -30
+    },
+    "encoding": {
+        "text": {"value": "Start of Autumn"},
+        "color": {"value": "grey"},
+        "fontSize": {"value": 12},
+        "opacity": {"value": 0.1}
+    }
+},
+{
+  "mark": {
+      "type": "text",
+      "align": "left",
+      "dx": 80,
+      "dy": 60
+  },
+  "encoding": {
+      "text": {"value": "Start of Spring"},
+      "color": {"value": "grey"},
+      "fontSize": {"value": 12},
+      "opacity": {"value": 0.1}
+  }
+},
+{
+  "mark": {
+      "type": "text",
+      "align": "left",
+      "dx": 200,
+      "dy": -140
+  },
+  "encoding": {
+      "text": {"value": "Start of Summer"},
+      "color": {"value": "grey"},
+      "fontSize": {"value": 12},
+      "opacity": {"value": 0.1}
+  }
+},
+    {
       "mark": "line",
       "selection": {
         "Location_highlight": {

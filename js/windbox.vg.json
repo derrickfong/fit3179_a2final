@@ -4,80 +4,102 @@
     "height": 400,
     "title": {
         "text": "Wind Gust Speed by Season",
-        "subtitle": "Hint: Hover over outliers to view when it occured"
-      },
+        "subtitle": "Hint: Hover over outliers to view when it occurred"
+    },
     "data": {
-      "url": "data/weather_test.csv",
-      "format": {"type": "csv"}
+        "url": "data/weather_test.csv",
+        "format": {"type": "csv"}
     },
     "params": [
-      {
-        "name": "Year_selection",
-        "bind": {
-          "input": "range",
-          "min": 2010,
-          "max": 2016,
-          "step": 1,
-          "name": "Year: "
+        {
+            "name": "Year_selection",
+            "bind": {
+                "input": "range",
+                "min": 2010,
+                "max": 2016,
+                "step": 1,
+                "name": "Year: "
+            },
+            "value": 2016
         },
-        "value": 2016
-      },
-      {
-        "name": "Location_selection",
-        "bind": {
-          "input": "select",
-          "options": [
-            "Adelaide", "Albany", "AliceSprings", "Ballarat", "Bendigo", "Brisbane",
-            "Cairns", "Canberra", "Darwin", "GoldCoast", "Hobart",
-            "Launceston", "Melbourne", "Newcastle", "Nuriootpa", "Perth", "SalmonGums",
-            "Sydney", "Townsville", "Uluru", "Walpole", "Williamtown", "Witchcliffe",
-            "Wollongong", "Woomera"
-          ],
-          "name": "Location: "
-        },
-        "value": "Melbourne"
-      }
+        {
+            "name": "Location_selection",
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Adelaide", "Albany", "AliceSprings", "Ballarat", "Bendigo", "Brisbane",
+                    "Cairns", "Canberra", "Darwin", "GoldCoast", "Hobart",
+                    "Launceston", "Melbourne", "Nuriootpa", "Perth", "SalmonGums",
+                    "Sydney", "Townsville", "Uluru", "Walpole", "Williamtown", "Witchcliffe",
+                    "Wollongong", "Woomera"
+                ],
+                "name": "Location: "
+            },
+            "value": "Melbourne"
+        }
     ],
     "transform": [
-      {
-        "filter": "datum.Year == Year_selection"
-      },
-      {
-        "filter": "datum.Location == Location_selection"
-      }
-    ],
-    "encoding": {
-      "x": {
-        "axis": {
-          "labelAngle": 45
-        },
-        "field": "Season",
-        "type": "ordinal",
-        "title": "Season",
-        "sort": ["Summer", "Autumn", "Winter", "Spring"]
-      },
-      "y": {
-        "field": "WindGustSpeed",
-        "type": "quantitative",
-        "title": "Wind Gust Speed (km/h)"
-      },
-      "tooltip": [
-        {"field": "Location", "title": "Location"},
-        {"field": "Season", "title": "Season"},
         {
-          "field": "Date",
-          "title": "Date",
-          "type": "temporal",
-          "timeUnit": "yearmonthdate",
-          "format": "%d %B %Y"  
+            "filter": "datum.Year == Year_selection"
         },
-        {"field": "WindGustSpeed", "title": "Wind Gust Speed (km/h)"}
-      ]
-    },
-    "mark": {
-      "type": "boxplot",
-      "size": 50, 
-      "strokeWidth": 3 
-    }
-  }
-  
+        {
+            "filter": "datum.Location == Location_selection"
+        }
+    ],
+    "layer": [
+        {
+            "mark": {
+                "type": "boxplot",
+                "size": 50,
+                "strokeWidth": 3
+            },
+            "encoding": {
+                "x": {
+                    "axis": {
+                        "labelAngle": 45
+                    },
+                    "field": "Season",
+                    "type": "ordinal",
+                    "title": "Season",
+                    "sort": ["Summer", "Autumn", "Winter", "Spring"]
+                },
+                "y": {
+                    "field": "WindGustSpeed",
+                    "type": "quantitative",
+                    "title": "Wind Gust Speed (km/h)"
+                },
+                "tooltip": [
+                    {"field": "Location", "title": "Location"},
+                    {"field": "Season", "title": "Season"},
+                    {
+                        "field": "Date",
+                        "title": "Date",
+                        "type": "temporal",
+                        "timeUnit": "yearmonthdate",
+                        "format": "%d %B %Y"
+                    },
+                    {"field": "WindGustSpeed", "title": "Wind Gust Speed (km/h)"}
+                ]
+            }
+        },
+        {
+            "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": -200,
+                "dy": -186
+            },
+            "transform": [
+                {
+                    "filter": "Year_selection === 2016 && Location_selection === 'Melbourne'"
+                }
+            ],
+            "encoding": {
+                "text": {"value": " <--- A Heavy thunderstorm swept across Melbourne, bringing damaging winds and dust."},
+                "color": {"value": "grey"},
+                "fontSize": {"value": 12},
+                "opacity": {"value": 0.1}
+            }
+        }
+    ]
+}

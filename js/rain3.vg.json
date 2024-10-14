@@ -111,6 +111,42 @@
           }
         ]
       }
+    },
+    {
+      "data": {
+        "values": [
+          {"Location": "Sydney", "Lat": -33.8688, "Long": 151.2093},
+          {"Location": "Melbourne", "Lat": -37.8136, "Long": 144.9631},
+          {"Location": "Perth", "Lat": -31.9505, "Long": 115.8605},
+          {"Location": "Darwin", "Lat": -12.4634, "Long": 130.8456},
+          {"Location": "Cairns", "Lat": -16.9186, "Long": 145.7781},
+          {"Location": "Hobart", "Lat": -42.8821, "Long": 147.3272},
+          {"Location": "Uluru", "Lat": -25.3444, "Long": 131.0369},
+          {"Location": "Alice Springs", "Lat": -23.6980, "Long": 133.8807},
+          {"Location": "Brisbane", "Lat": -27.4698, "Long": 153.02807}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "dy": -20,  
+        "color": "black"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Long",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "Location",
+          "type": "nominal"
+        }
+      }
     }
   ],
   "config": {

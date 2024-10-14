@@ -198,3 +198,19 @@ main {
     padding: 10px; /* Add padding for text inside the container */
     box-sizing: border-box; /* Include padding in width calculation */
 }
+
+footer {
+    background-color: #005f8c; /* Change to a suitable blue color */
+    color: white; /* Text color */
+    text-align: center; /* Center-align text */
+    padding: 15px; /* Add some padding */
+    font-size: 14px; /* Set font size */
+    position: relative; /* Ensure it's positioned properly */
+    bottom: 0; /* Align to the bottom */
+    width: 100%; /* Full width */
+    margin-top: 20px; /* Add space above the footer */
+}
+
+footer p {
+    margin: 5px 0; /* Add vertical space between paragraphs */
+}
