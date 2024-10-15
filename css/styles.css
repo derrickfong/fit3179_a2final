@@ -1,43 +1,38 @@
-/* Shared styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #eaf0f6; /* Light background for contrast */
-    color: #000; /* Set body text color to black */
+    background-color: #eaf0f6; 
+    color: #000; 
     margin: 0;
     padding: 0;
 }
 
 header {
     color: white;
-    padding: 50px 10px 10px 20px; /* Increase top padding by 10px */
+    padding: 50px 10px 10px 20px; 
     text-align: center;
 }
 
-
-
 h1, h2 {
     margin: 0;
-    color: #000; /* Set heading text color to black */
-    text-align: center; /* Center align headings */
+    color: #000; 
+    text-align: center; 
 }
 
 h1 {
-    font-size: 50px; /* Increase font size for the main heading */
+    font-size: 50px; 
 }
 
 h2 {
     font-size: 24px;
-    color: #ffffff; /* Increase font size for subheadings */
-    margin: 20px 0; /* Add vertical spacing around subtitles */
-    text-align: center; /* Center align headings */
-    padding: 15px; /* Add padding inside the box */
-    border: 2px solid #004a99; /* Darker blue border matching container outer color */
-    border-radius: 10px; /* Rounded corners for a softer look */
-    background-color: #1f77b4; /* Light blue background for contrast */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    color: #ffffff; 
+    margin: 20px 0; 
+    text-align: center; 
+    padding: 15px; 
+    border: 2px solid #004a99; 
+    border-radius: 10px; 
+    background-color: #1f77b4; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
-
-
 
 main {
     padding: 20px;
@@ -45,172 +40,167 @@ main {
 
 .viz-wrapper {
     flex: 1;
-    min-width: 300px; /* Ensures a minimum width */
-    background-color: #ffffff; /* White background for visualizations */
+    min-width: 300px; 
+    background-color: #ffffff; 
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
     padding: 10px;
-    margin-bottom: 20px; /* Add bottom margin for spacing between containers */
+    margin-bottom: 20px; 
 }
 
 .viz-container {
     width: 100%;
-    height: 300px; /* Consistent height for visualizations */
+    height: 300px; 
 }
 
-/* Rain3 styles */
 .rain3-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Adds space between the visualization and text */
-    align-items: center; /* Aligns items vertically */
+    gap: 20px; 
+    align-items: center;
     margin-bottom: 10px;
 }
 
 .viz-wrapper.rain3 {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    align-items: center; /* Center items vertically */
-    gap: 20px; /* Space between visualization and text */
-    width: 100%; /* Full width */
+    flex-direction: row; 
+    align-items: center; 
+    gap: 20px; 
+    width: 100%; 
 }
 
 .viz-container.rain3 {
-    width: 70%; /* Adjust space for the visualization */
-    height: 550px; /* Adjusted height for rain3 */
+    width: 70%; 
+    height: 550px; 
 }
 
 .rain3_text {
-    width: 30%; /* Adjust width for the text container */
-    font-size: 16px; /* Increase text size */
-    color: #000; /* Set text color to black */
-    margin: 0; /* Remove top margin to align with the visualization */
-    padding: 10px; /* Add padding for text inside the container */
-    text-align: justify; /* Justify alignment for better text balance */
+    width: 30%; 
+    font-size: 16px; 
+    color: #000; 
+    margin: 0; 
+    padding: 10px; 
+    text-align: justify; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center text vertically */
-    height: 300px; /* Match the height of the visualization */
+    justify-content: center; 
+    height: 300px; 
 }
 
-/* Temp3 styles */
 .temp3-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Adds space between the visualization and text */
-    align-items: center; /* Aligns items vertically */
+    gap: 20px; 
+    align-items: center; 
     margin-bottom: 10px;
 }
 
 .viz-wrapper.temp3 {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    align-items: center; /* Center items vertically */
-    gap: 20px; /* Space between visualization and text */
-    width: 100%; /* Full width */
+    flex-direction: row; 
+    align-items: center; 
+    gap: 20px; 
+    width: 100%; 
 }
 
 .viz-container.temp3 {
-    width: 70%; /* Adjust space for the visualization */
-    height: 550px; /* Adjusted height for temp3 */
+    width: 70%; 
+    height: 550px; 
 }
 
 .temp3_text {
-    width: 30%; /* Adjust width for the text container */
-    font-size: 16px; /* Increase text size */
-    color: #000; /* Set text color to black */
-    margin: 0; /* Remove top margin to align with the visualization */
-    padding: 10px; /* Add padding for text inside the container */
-    text-align: justify; /* Justify alignment for better text balance */
+    width: 30%; 
+    font-size: 16px; 
+    color: #000; 
+    margin: 0; 
+    padding: 10px; 
+    text-align: justify; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center text vertically */
-    height: 300px; /* Match the height of the visualization */
+    justify-content: center; 
+    height: 300px; 
 }
 
-/* Scatter styles */
 .scatter-container {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Adds space between the visualization and text */
-    align-items: center; /* Aligns items vertically */
+    gap: 20px; 
+    align-items: center; 
     margin-bottom: 10px;
 }
 
 .viz-wrapper.scatter {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    align-items: center; /* Center items vertically */
-    gap: 20px; /* Space between visualization and text */
-    width: 100%; /* Full width */
+    flex-direction: row; 
+    align-items: center; 
+    gap: 20px; 
+    width: 100%; 
 }
 
 .viz-container.scatter {
-    width: 100%; /* Adjust space for the visualization */
-    height: 400px; /* Adjusted height for scatter */
+    width: 100%; 
+    height: 400px; 
 }
 
 .scatter_text {
-    width: 30%; /* Adjust width for the text container */
-    font-size: 16px; /* Increase text size */
-    color: #000; /* Set text color to black */
-    margin: 0; /* Remove top margin to align with the visualization */
-    padding: 10px; /* Add padding for text inside the container */
-    text-align: justify; /* Justify alignment for better text balance */
+    width: 30%; 
+    font-size: 16px; 
+    color: #000; 
+    margin: 0; 
+    padding: 10px; 
+    text-align: justify; 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center text vertically */
-    height: 300px; /* Match the height of the visualization */
+    justify-content: center; 
+    height: 300px; 
 }
 
-/* Other visualizations - Text below */
 .rain-container,
 .wind-container,
 .temp-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px; /* Adjusted for uniform horizontal and vertical spacing */
+    gap: 20px; 
 }
 
 .viz-wrapper:not(.rain3):not(.temp3):not(.scatter) {
-    flex-direction: column; /* Stack the visualization and text */
-    align-items: flex-start; /* Align text below the visualization */
-    height: 800px; /* Set a specific height for the wrapper */
+    flex-direction: column; 
+    align-items: flex-start; 
+    height: 800px; 
 }
 
-
 .viz-container:not(.rain3):not(.temp3):not(.scatter) {
-    width: 100%; /* Full width visualization */
+    width: 100%; 
     height: 300px;
 }
 
 .text-placeholder:not(.rain3_text):not(.temp3_text):not(.scatter_text) {
-    width: 100%; /* Full width for the text */
+    width: 100%; 
     margin-top: 10px;
-    height: 300px; /* Match the height of the visualizations */
-    text-align: justify; /* Justify alignment for better text balance */
+    height: 300px; 
+    text-align: justify; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Space out the text evenly */
-    font-size: 16px; /* Increase text size */
-    color: #000; /* Set text color to black */
-    padding: 10px; /* Add padding for text inside the container */
-    box-sizing: border-box; /* Include padding in width calculation */
+    justify-content: space-between; 
+    font-size: 16px; 
+    color: #000; 
+    padding: 10px; 
+    box-sizing: border-box; 
 }
 
 footer {
-    background-color: #005f8c; /* Change to a suitable blue color */
-    color: white; /* Text color */
-    text-align: center; /* Center-align text */
-    padding: 15px; /* Add some padding */
-    font-size: 14px; /* Set font size */
-    position: relative; /* Ensure it's positioned properly */
-    bottom: 0; /* Align to the bottom */
-    width: 100%; /* Full width */
-    margin-top: 20px; /* Add space above the footer */
+    background-color: #005f8c; 
+    color: white; 
+    text-align: center; 
+    padding: 15px; 
+    font-size: 14px; 
+    position: relative; 
+    bottom: 0; 
+    width: 100%; 
+    margin-top: 20px; 
 }
 
 footer p {
-    margin: 5px 0; /* Add vertical space between paragraphs */
+    margin: 5px 0; 
 }
