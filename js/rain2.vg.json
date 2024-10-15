@@ -71,11 +71,7 @@
           "field": "Rain_Percentage",
           "type": "quantitative",
           "scale": {"domain": [0, 80]},
-          "title": "Frequency (%)",
-          "axis": {
-            "grid": false,
-            "domain": false
-          }
+          "title": "Frequency (%)"
         },
         "color": {"value": "#1f77b4"},
         "tooltip": [
